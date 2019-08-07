@@ -1,0 +1,7 @@
+
+
+# python virutalenv
+env
+
+# listar caminhos a serem ignorados
+__pycache___
