@@ -3,5 +3,8 @@
 # python virutalenv
 env
 
-# listar caminhos a serem ignorados
+# pycache
 __pycache___
+
+# env settings
+.env
