@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="card shadow">
+  <div class="card-header">
+    <h1 align="center">Jenkins</h1>
+  </div>
+  <div class="card-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Imagem</th>
+          <th>Status</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>==ID DO CONTAINER==</td>
+          <td>
+            ==NOME DO CONTAINER==
+          </td>
+          <td>
+            ==STATUS DO SERVIÇO==
+          </td>
+          <td>
+            <a href="#">
+              <i style="color: green" class="fas fa-play"></i>
+            </a>
+            <a href="#">
+              <i style="color: red" class="fas fa-stop"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div> 
+{% endblock %}

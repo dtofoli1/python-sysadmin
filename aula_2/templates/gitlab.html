@@ -1,0 +1,57 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="card shadow">
+  <div class="card-header">
+    <h3>Gitlab</h3>
+  </div>
+  <div class="card-body">
+    <section id="users">
+      <header>
+        <h4>Usuários</h4>
+      </header>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Usuário</th>
+            <th>Status</th>
+            <th>Admin</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>== EMAIL ==</td>
+            <td>== USERNAME ==</td>
+            <td>== ESTADO DO USUARIO ==</td>
+            <td>== USUARIO É ADMIN ==</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section id="projects">
+      <header>
+        <h4>Projetos</h4>
+      </header>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nome do Projeto</th>
+            <th>Link SSH</th>
+            <th>Dono</th>
+            <th>Caminho</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>== NOME DO PROJETO ==</td>
+            <td>== LINK SSH ==</td>
+            <td>== DONO DO PROJETO ==</td>
+            <td>== CAMINHO DO PROJETO ==</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>
+{% endblock %}

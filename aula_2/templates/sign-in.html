@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block content %}
+<div class="card shadow" style="width: 20rem; margin: auto;">
+  <div class="card-body">
+  	<header>
+  		<h1 class="display-7">Sign In</h1>
+  		<hr>
+  	</header>
+    <form method="POST" action="/sign-in">
+      <div class="form-group">
+				<label for="email">Email</label>
+				<input type="email" id="email" class="form-control" name="email">
+      </div>
+      <div class="form-group">
+				<label for="password">Password</label>
+				<input type="password" id="password" class="form-control" name="password">
+		</div>
+      <button type="submit" class="btn btn-primary btn-block">Acessar</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
