@@ -6,9 +6,15 @@
     <h1 align="center">Jenkins</h1>
   </div>
   <div class="card body">
-  	<h2 class="card title" align="center">==NOME DO JOB==</h2>
-  	<textarea class="form-control" name="jobdescription"></textarea>
-  	</div>
-  	<button type="update" class="btn btn-primary btn-block">Enviar</button>
+  	<h2 class="card title" align="center">{{ context.job.fullName }}</h2>
+  	<form method="POST" action="/jenkins/{{ context.job.fullName }}">
+  		<div class="form-group">
+  			<textarea class="form-control" name="xml">
+  				{{ context.job.xml }}
+  			</textarea>
+  		</div>
+  		<button type="submit" class="btn btn-primary btn-block">Enviar</button>
+		</form>
+  </div>
  </div>
   {% endblock %}

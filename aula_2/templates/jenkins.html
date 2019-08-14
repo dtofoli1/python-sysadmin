@@ -16,23 +16,33 @@
         </tr>
       </thead>
       <tbody>
+        {% for job in context.jobs %}
         <tr>
-          <td>==NOME DO JOB==</td>
+          <td>{{ job.name }}</td>
           <td>
-            <img alt="icon">
+            {% if job.healthReport|length > 0 %}
+            <img src="http://localhost:8081/static/76a210f1/images/32x32/{{ job.healthReport.0.iconUrl }}" alt="icon">
+            {% else %}
+            Sem Status Disponível
+            {% endif %}
           </td>
           <td>
-            ==STATUS DO ÚLTIMO BUILD==
+            {% if not job.firstBuild %}
+              Nunca buildou
+            {% elif job.lastSuccessfulBuild.number == job.nextBuildNumber-1 %}
+              Sucesso
+            {% endif %}
           </td>
           <td>
-            <a href="#">
+            <a class="mr-2" href="/jenkins/build/{{ job.fullName }}">
               <i class="fas fa-redo-alt"></i>
             </a>
-            <a href="#">
+            <a href="/jenkins/{{ job.fullName }}">
               <i class="fas fa-pen"></i>
             </a>
           </td>
         </tr>
+        {% endfor %}
       </tbody>
     </table>
   </div>
