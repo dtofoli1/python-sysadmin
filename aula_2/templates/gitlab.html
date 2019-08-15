@@ -20,12 +20,14 @@
           </tr>
         </thead>
         <tbody>
+          {% for user in context.users %}
           <tr>
-            <td>== EMAIL ==</td>
-            <td>== USERNAME ==</td>
-            <td>== ESTADO DO USUARIO ==</td>
-            <td>== USUARIO É ADMIN ==</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.state }}</td>
+            <td>{{ user.is_admin }}</td>
           </tr>
+          {% endfor %}
         </tbody>
       </table>
     </section>
@@ -43,12 +45,15 @@
           </tr>
         </thead>
         <tbody>
+        {% for project in context.projects %}
           <tr>
-            <td>== NOME DO PROJETO ==</td>
-            <td>== LINK SSH ==</td>
-            <td>== DONO DO PROJETO ==</td>
-            <td>== CAMINHO DO PROJETO ==</td>
+            <td>{{ project.name }}</td>
+            <td>{{ project.ssh_url_to_repo }}</td>
+            <td>{{ project.owner.name }}</td>
+            <td>{{ project.path }}</td>
+            <td> <a href="/gitlab/{{ project.id }}">Ver Commits</td>
           </tr>
+          {% endfor %}
         </tbody>
       </table>
     </section>
