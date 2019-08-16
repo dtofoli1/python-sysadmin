@@ -13,6 +13,8 @@ from routes.gitlab import blueprint as gitlab_blueprint
 
 app = flask.Flask(__name__)
 
+app.secret_key = 'secret'
+
 app.register_blueprint(auth_blueprint)
 app.register_blueprint(jenkins_blueprint)
 app.register_blueprint(docker_blueprint)

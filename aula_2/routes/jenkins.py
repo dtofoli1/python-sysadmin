@@ -1,10 +1,12 @@
 import flask
 import jenkins
-
+from services.login_required import login_required
 
 blueprint = flask.Blueprint('jenkins', __name__)
 
 @blueprint.route('/jenkins', methods=[ 'GET', 'POST' ])
+@login_required
+
 def get_jenkins():
 	
 	conn = jenkins.Jenkins('http://localhost:8081', 'admin', 'admin')
@@ -21,6 +23,8 @@ def get_jenkins():
 	return flask.render_template('jenkins.html', context=context)
 
 @blueprint.route('/jenkins/build/<jobname>', methods=[ 'GET' ])
+@login_required
+
 def build_jenkins_job(jobname):
 
 	conn = jenkins.Jenkins('http://localhost:8081', 'admin', 'admin')
@@ -30,6 +34,8 @@ def build_jenkins_job(jobname):
 	return flask.redirect('/jenkins')
 
 @blueprint.route('/jenkins/<jobname>', methods=[ 'GET', 'POST' ])
+@login_required
+
 def jenkins_update(jobname):
 
 	conn = jenkins.Jenkins('http://localhost:8081', 'admin', 'admin')

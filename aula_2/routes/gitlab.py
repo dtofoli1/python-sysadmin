@@ -2,10 +2,13 @@
 
 import flask
 import requests
+from services.login_required import login_required
 
 blueprint = flask.Blueprint('gitlab', __name__)
 
 @blueprint.route('/gitlab', methods=['GET', 'POST'])
+@login_required
+
 def gitlab():
 	
 	users = requests.get('http://localhost:8000/api/v4/users', headers = { 'Private-Token': 'tvivjqsWcJbsezuRzozU' })
@@ -19,6 +22,8 @@ def gitlab():
 	return flask.render_template('gitlab.html', context=context)
 
 @blueprint.route('/gitlab/<projectid>', methods=[ 'GET', 'POST'])
+@login_required
+
 def gitlab_commit(projectid):
 
 	URL = 'http://localhost:8000/api/v4/projects/{}/repository/commits/'.format(projectid)
