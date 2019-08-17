@@ -52,7 +52,7 @@ python-memcached==1.58
 pyxdg==0.25
 PyYAML==3.12
 redis==2.10.5
-requests==2.13.0
+requests==2.20.0
 scandir==1.4
 SecretStorage==2.3.1
 service-identity==16.0.0
