@@ -1,3 +1,4 @@
+import logging
 
 import flask
 import ldap3
@@ -32,6 +33,7 @@ def sign_in():
 		try:
 			user = conn.entries[0]
 		except IndexError:
+			logging.warning('Falha ao realizar login')
 			return flask.redirect('/sign-in')
 
 		saved_password = user.userPassword[0].decode()
